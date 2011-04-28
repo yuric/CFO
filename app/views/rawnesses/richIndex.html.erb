@@ -1,0 +1,27 @@
+<h1>Listing Department Expenses</h1>
+
+<table>
+  <tr>
+    <th>Department</th>
+    <th>Total Expenses</th>
+    <th>Year</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @rawnesses.each do |rawness| %>
+<tr class="<%= cycle("even", "odd") %>">
+    <td><%= rawness.department %></td>
+    <td><%= rawness.money %></td>
+    <td><%= rawness.year %></td>
+    <td><%= link_to 'View Details', rawness %></td>
+    <td><%= link_to 'Edit', edit_rawness_path(rawness) %></td>
+    <td><%= link_to 'Destroy', rawness, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Data Entry', new_rawness_path %>

@@ -1,0 +1,306 @@
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+<div id="toggle">
+	<a onclick="ShowHideWdt(); return false;" href="#">DataTables</a>|
+	<a onclick="ShowHideCbar(); return false;" href="#">Bar</a>|
+	<a onclick="ShowHidePie(); return false;" href="#">Pie</a>|
+	<a onclick="HideAll(); return false;" href="#">Hide All</a>
+</div>
+  
+<div id="dialog" style="display:none", title="PUC Thematic Mapping">
+	<script src="http://www.gmodules.com/ig/ifr?url=http://code.google.com/apis/kml/embed/embedkmlgadget.xml&amp;up_kml_url=http%3A%2F%2Fdl.dropbox.com%2Fu%2F20792000%2Ftme1303966092.kmz&amp;up_view_mode=earth&amp;up_earth_2d_fallback=1&amp;up_earth_fly_from_space=1&amp;up_earth_show_nav_controls=1&amp;up_earth_show_buildings=1&amp;up_earth_show_terrain=1&amp;up_earth_show_roads=1&amp;up_earth_show_borders=1&amp;up_earth_sphere=earth&amp;up_maps_zoom_out=0&amp;up_maps_default_type=map&amp;synd=open&amp;w=600&amp;h=400&amp;title=CFO+Finance+Demonstration&amp;border=%23ffffff%7C0px%2C1px+solid+%2399BB66%7C0px%2C2px+solid+%23AACC66%7C0px%2C2px+solid+%23BBDD66&amp;output=js"></script>	
+	
+</div>
+
+
+
+
+<!-- Hide and show animation-->
+<script type="text/javascript">
+//<![CDATA[
+function ShowHideCbar(){
+$("#cbar").animate({"height": "toggle"}, { duration: 1000 });
+}
+function ShowHidePie(){
+$("#pie").animate({"height": "toggle"}, { duration: 1000 });
+}
+function ShowHideWdt(){
+$("#wdt").animate({"height": "toggle"}, { duration: 1000 });
+}
+function ShowHideDialog()
+{
+$("#dialog").dialog({ minWidth: 600, modal: true });
+}
+function HideAll(){
+$("#wdt").animate({"height": "hide"}, { duration: 1000 });
+$("#cbar").animate({"height": "hide"}, { duration: 1000 });
+$("#pie").animate({"height": "hide"}, { duration: 1000 });
+
+}
+//]]>
+</script>
+
+
+
+<% x = 2011 - 1998#2012 - 1882%>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+		var csmp = "<%=@CSMP %>";
+		var biology = "<%=@Biology %>";
+		var education = "<%=@Education %>";
+		var nursing = "<%=@Nursing %>";
+		var business = "<%=@Business %>";
+		
+		
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "wdt"
+      },
+      title: {
+        text: "PUC Department Expenses"
+      },
+      xAxis: {
+        type: "datetime"
+      },
+      yAxis: {
+        title: {
+          text: "Dollars"
+        }
+      },
+      tooltip: {
+        formatter: function() {
+          return Highcharts.dateFormat("Year, %Y", this.x) + ': ' +
+            "$" + Highcharts.numberFormat(this.y, 2);
+        }
+      },
+      series: [
+			{
+        	name: "CSMP",
+	        pointInterval: <%= 1.year * 1000 %>,
+	        pointStart: <%= x.years.ago.to_i * 1000 %>,
+		  	data: JSON.parse("[" + csmp + "]")
+      		},
+
+			{
+		  	name: "Biology",
+		    pointInterval: <%= 1.year * 1000 %>,
+		    pointStart: <%= x.years.ago.to_i * 1000 %>,
+			data: JSON.parse("[" + biology + "]")
+		    },
+
+			{
+		  	name: "Education",
+		    pointInterval: <%= 1.year * 1000 %>,
+		    pointStart: <%= x.years.ago.to_i * 1000 %>,
+			data: JSON.parse("[" + education + "]")
+		    },
+
+			{
+		  	name: "Nursing",
+		    pointInterval: <%= 1.year * 1000 %>,
+		    pointStart: <%= x.years.ago.to_i * 1000 %>,
+			data: JSON.parse("[" + nursing + "]")
+		    },
+
+			{
+		  	name: "Business",
+		    pointInterval: <%= 1.year * 1000 %>,
+		    pointStart: <%= x.years.ago.to_i * 1000 %>,
+			data: JSON.parse("[" + business + "]")
+		    },
+
+
+			]
+
+    });
+  });
+</script>
+
+<!-- 2nd Chart. Add the JavaScript to initialize the chart on document ready -->
+	<script type="text/javascript">
+	
+		var chart;
+		var csmp = "<%=@CSMP %>";
+		var biology = "<%=@Biology %>";
+		var education = "<%=@Education %>";
+		var nursing = "<%=@Nursing %>";
+		var business = "<%=@Business %>";
+		
+		$(document).ready(function() {
+			chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'cbar',
+					defaultSeriesType: 'column'
+				},
+		      title: {
+		        text: "PUC Department Expenses"
+		      },
+		      xAxis: {
+		        type: "datetime"
+		      },
+		      yAxis: {
+		        title: {
+		          text: "Dollars"
+		        }
+		      },
+		     tooltip: {
+		        formatter: function() {
+		          return Highcharts.dateFormat("Year, %Y", this.x) + ': ' +
+		            "$" + Highcharts.numberFormat(this.y, 2);
+		        }
+		      },		
+				legend: {
+					layout: 'vertical',
+					backgroundColor: '#FFFFFF',
+					align: 'left',
+					verticalAlign: 'top',
+					x: 60,
+					y: 00,
+					floating: true,
+					shadow: true
+				},
+				plotOptions: {
+					column: {
+						pointPadding: 0.1,
+						borderWidth: 0
+					}
+				},
+			        series: [{
+					name: 'CSMP',
+					pointInterval: <%= 1.year * 1000 %>,
+			        pointStart: <%= x.years.ago.to_i * 1000 %>,
+				  	data: JSON.parse("[" + csmp + "]")
+			
+				}, {
+					name: 'Biology',
+					pointInterval: <%= 1.year * 1000 %>,
+			        pointStart: <%= x.years.ago.to_i * 1000 %>,
+				  	data: JSON.parse("[" + biology + "]")
+			
+				}, {
+					name: 'Education',
+					pointInterval: <%= 1.year * 1000 %>,
+			        pointStart: <%= x.years.ago.to_i * 1000 %>,
+				  	data: JSON.parse("[" + education + "]")
+			
+				}, {
+					name: 'Nursing',
+					pointInterval: <%= 1.year * 1000 %>,
+			        pointStart: <%= x.years.ago.to_i * 1000 %>,
+				  	data: JSON.parse("[" + nursing + "]")
+				}, {
+					name: 'Business',
+					pointInterval: <%= 1.year * 1000 %>,
+			        pointStart: <%= x.years.ago.to_i * 1000 %>,
+				  	data: JSON.parse("[" + business + "]")
+			
+				}]
+			});
+			
+			
+		});
+			
+</script>
+
+<!-- 3rd Chart. Pie Chart  -->
+	<script type="text/javascript">
+	
+		var chart;
+		$(document).ready(function() {
+			chart = new Highcharts.Chart({
+				chart: {
+					renderTo: 'pie',
+					plotBackgroundColor: null,
+					plotBorderWidth: null,
+					plotShadow: false
+				},
+				title: {
+					text: 'Department Expenses Shares, 2011'
+				},
+				tooltip: {
+					formatter: function() {
+						return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+					}
+				},
+				plotOptions: {
+					pie: {
+						allowPointSelect: true,
+						cursor: 'pointer',
+						dataLabels: {
+							enabled: true,
+							color: '#000000',
+							connectorColor: '#000000',
+							formatter: function() {
+								return '<b>'+ this.point.name +'</b>: '+ this.y +' %';
+							}
+						}
+					}
+				},
+			    series: [{
+					type: 'pie',
+					name: 'Expenses share',
+					data: [
+						{
+							name: 'CSMP',    
+							y: <%=@pArray[0]%>,
+							sliced: true,
+							selected: true
+						},
+						['Biology',   <%=@pArray[1]%>],
+						['Nursing',       <%=@pArray[2]%>],
+						['Education',    <%=@pArray[3]%>],
+						['Business',     <%=@pArray[4]%>],
+						['Others',   <%=@pArray[@pArray.length-1]%>]
+					]
+				}]
+			});
+		});
+			
+			
+</script>
+
+
+	
+<!--Add the containers -->
+<div id="wdt" style="width:560px; height:300px; display:none;"></div>
+<div id="cbar" style="width:800px; height:300px; display:none;"></div>
+<div id="pie" style="width: 800px; height: 400px; margin: 0 auto; display:none;"></div>
+
+	<% form_tag request.path, :method => 'get' do %>
+	<%= select_tag :searchState, options_for_select(x.years.ago.year..Date.today.year) %>
+	<%= select_tag :proximity, options_for_select(["CSMP", "Education", "Biology", "Nursing", "Business"]) %>
+	<%= select_tag :proximityUnits, options_for_select(["Some other options"]) %>
+	<%= submit_tag "Search" %>  
+	<%end%> 
+<h1>Listing Department Expenses</h1>
+
+<table>
+  <tr>
+	<th>ID</th>
+    <th>Department</th>
+    <th>Total Expenses</th>
+    <th>Year</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<%i=0%>
+<% @rawnesses.each do |rawness| %>
+<tr class="<%= cycle("even", "odd") %>">
+	<td><%= i+=1 %></td>
+    <td><%= rawness.department %></td>
+    <td><%= number_to_currency(rawness.money) %></td>
+    <td><%= rawness.year %></td>
+    <td><%= link_to 'View Details', rawness %></td>
+    <td><%= link_to 'Edit', edit_rawness_path(rawness) %></td>
+    <td><%= link_to 'Destroy', rawness, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Data Entry', new_rawness_path %>

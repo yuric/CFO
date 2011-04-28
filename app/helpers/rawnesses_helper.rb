@@ -1,0 +1,2 @@
+module RawnessesHelper
+end

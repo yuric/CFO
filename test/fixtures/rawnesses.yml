@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  department: MyString
+  year: 1
+  money: 9.99
+
+two:
+  department: MyString
+  year: 1
+  money: 9.99

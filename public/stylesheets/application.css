@@ -1,0 +1,263 @@
+body {
+  background-color: #4B7399;
+  font-family: Verdana, Helvetica, Arial;
+  font-size: 14px;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  color: #0000FF;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px;
+}
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin: 0;
+}
+
+table.pretty {
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table.pretty td, table.pretty th {
+  padding: 3px 8px;
+  border: solid 1px #CCC;
+}
+
+table.pretty td.price {
+  text-align: right;
+}
+
+.pagination .previous_page {
+  padding-right: 10px;
+}
+
+.pagination .next_page {
+  padding-left: 10px;
+}
+
+
+
+
+
+
+
+/* TABLE
+    Addaped by Yuri Costa from samples written by Thomas Opp
+ 	from: http://icant.co.uk/csstablegallery/tables/33.php
+*/
+table {
+  border-collapse: collapse;
+  border: 1px solid #38160C;
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+  color: #F6ECF0;
+  background: white;
+  }
+caption {
+  text-align: left;
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+  background: transparent;
+  }
+td, th {
+  border: 1px solid black;
+  padding: .8em;
+  color: black;
+  }
+thead th, tfoot th {
+  font: bold 11px verdana, arial, helvetica, sans-serif;
+  border: 1px solid #A85070;;
+  text-align: left;
+  background: #38160C;
+  color: #F6ECF0;
+  padding-top:6px;
+  }
+tbody td a {
+  background: transparent;
+  text-decoration: green;
+  color: black;
+  }
+tbody td a:hover {
+  background: transparent;
+  color: #FFFFFF;
+  }
+tbody th a {
+  font: normal 11px verdana, arial, helvetica, sans-serif;
+  background: transparent;
+  text-decoration: none;
+  font-weight:normal;
+  color: #F6ECF0;
+  }
+tbody th a:hover {
+  background: transparent;
+  color: #FFFFFF;
+  }
+tbody th, tbody td {
+  vertical-align: top;
+  text-align: left;
+  }
+tfoot td {
+  border: 1px solid #38160C;
+  background: #38160C;
+  padding-top:6px;
+  }
+.odd {
+  background:white;
+  }
+.even {
+  background:gray;
+  }
+.first {
+  background: #51152A;
+  }
+tbody tr:hover {
+  background: #4B7399;
+  }
+tbody tr:hover th,
+tbody tr.odd:hover th {
+  background: #51152A;
+  }
+
+
+
+
+div#toggle
+{
+	z-index:999;
+	/*width: 350px;*/
+	/*height: 100px;*/
+	/*top: 50%;*/
+	left: 71.0%;
+	position:fixed;
+	/*margin-top: -50px;*/
+	/*right:0px;*/
+	border: solid #CC99CC;
+	border-width: 8px 3px 8px 3px;
+	/*background: white;*/
+	border:solid #4B7399;
+	border-width:5px 5px 5px 5px; /*top, XXX, bottom*/
+	padding-top:6px;
+	padding-bottom:6px;
+	padding-right:6px;
+	padding-left:6px;
+	font-weight:normal;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 5px;
+	-moz-background-clip: border;     /* Firefox 3.6 */
+    -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+    background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: padding;     /* Firefox 3.6 */
+    -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+    background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+
+    -moz-background-clip: content;     /* Firefox 3.6 */
+    -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+    background-clip: content-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	  -moz-box-shadow: 3px 3px 4px #000;
+		-webkit-box-shadow: 3px 3px 4px #000;
+		box-shadow: 15px 15px 20px #000;
+		/* For IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+		/* For IE 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+
+
+}
+
+/* Logo*/
+#corner-banner { 
+    position: absolute; 
+    left: -65px; 
+    top: 15px; 
+    display: block; 
+    width: 200px; 
+    background: #333; 
+    background: -moz-linear-gradient(top, #333 0%, #000 100%); 
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#333), color-stop(100%,#4B7399)); 
+    text-align:center; 
+    font-size:11px; 
+    line-height:13px; 
+    padding:3px 3px 4px 3px; 
+    text-shadow: #000 1px 1px 0; 
+    -webkit-transform: rotate(-45deg); 
+    -moz-transform: rotate(-45deg); 
+    transform: rotate(-45deg); 
+    box-shadow: rgba(0,0,0, 0.2) 0px 0px 6px; 
+    -moz-box-shadow: rgba(0,0,0, 0.2) 0px 0px 6px; 
+    -webkit-box-shadow: rgba(0,0,0, 0.2) 0px 0px 6px; 
+} 
+/*
+http://www.exploding-boy.com/images/banners/banners.html#
+http://www.cagintranet.com/archive/css3-corner-banner-with-ie-fallback/ 
+*/
+#corner-banner a:link,#corner-banner a:visited  {color:#FFF0B7;text-decoration: none;} 
+#corner-banner a:hover,#corner-banner a:focus  {color:#FFF;text-decoration: none;} 
+#corner-banner em { 
+    letter-spacing:1px; 
+    font-style:normal; 
+    font-size:8px !important; 
+    color:#fff; 
+    text-transform:uppercase; 
+    line-height:12px; 
+    display:block; 
+}

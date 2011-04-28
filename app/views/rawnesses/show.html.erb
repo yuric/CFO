@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Department:</b>
+  <%= @rawness.department %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @rawness.year %>
+</p>
+
+<p>
+  <b>Money:</b>
+  <%= @rawness.money %>
+</p>
+
+
+<%= link_to 'Edit', edit_rawness_path(@rawness) %> |
+<%= link_to 'Back', rawnesses_path %>

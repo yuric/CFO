@@ -1,0 +1,29 @@
+<%= form_for(@rawness) do |f| %>
+  <% if @rawness.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rawness.errors.count, "error") %> prohibited this rawness from being saved:</h2>
+
+      <ul>
+      <% @rawness.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :department %><br />
+    <%= f.text_field :department %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :money %><br />
+    <%= f.text_field :money %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
